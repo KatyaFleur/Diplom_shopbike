@@ -48,21 +48,39 @@ Loc::loadLanguageFile(__FILE__);
                         false
                     ); ?>
                 </a>
-                <nav class="header__nav-list-wrp">
-                    <ul class="header__nav-list">
-                        <li><a href="catalog.html">каталог</a></li>
-                        <li><a href="#">контакты</a></li>
-                        <li><a href="#">отзывы</a></li>
-                        <li><a href="#">доставка и оплата</a></li>
-                    </ul>
-                </nav>
+                <? // Меню - http://dev.1c-bitrix.ru/user_help/settings/settings/components_2/navigation/menu.php
+                $APPLICATION->IncludeComponent("bitrix:menu", "top_menu_main", array(
+                    "ROOT_MENU_TYPE" => "top",    // Тип меню для первого уровня
+                    "MENU_CACHE_TYPE" => "N",    // Тип кеширования
+                    "MENU_CACHE_TIME" => "3600",    // Время кеширования (сек.)
+                    "MENU_CACHE_USE_GROUPS" => "Y",    // Учитывать права доступа
+                    "MENU_CACHE_GET_VARS" => "",    // Значимые переменные запроса
+                    "MAX_LEVEL" => "1",    // Уровень вложенности меню
+                    "CHILD_MENU_TYPE" => "",    // Тип меню для остальных уровней
+                    "USE_EXT" => "N",    // Подключать файлы с именами вида .тип_меню.menu_ext.php
+                    "DELAY" => "N",    // Откладывать выполнение шаблона меню
+                    "ALLOW_MULTI_SELECT" => "N",    // Разрешить несколько активных пунктов одновременно
+                    "COMPONENT_TEMPLATE" => ".default"
+                ),
+                    false
+                ); ?>
                 <div class="header__nav-box header__search">
-                    <form action="#">
-                        <label>
-                            <input type="search" placeholder="Поиск">
-                            <span class="visually-hidden">поиск</span>
-                        </label>
-                    </form>
+                    <? // Поиск по заголовкам - http://dev.1c-bitrix.ru/user_help/settings/search/components_2/search_title.php
+                    $APPLICATION->IncludeComponent("bitrix:search.title", "header_search", array(
+                        "NUM_CATEGORIES" => "1",    // Количество категорий поиска
+                        "TOP_COUNT" => "5",    // Количество результатов в каждой категории
+                        "ORDER" => "date",    // Сортировка результатов
+                        "USE_LANGUAGE_GUESS" => "Y",    // Включить автоопределение раскладки клавиатуры
+                        "CHECK_DATES" => "N",    // Искать только в активных по дате документах
+                        "SHOW_OTHERS" => "N",    // Показывать категорию "прочее"
+                        "PAGE" => "#SITE_DIR#search/index.php",    // Страница выдачи результатов поиска (доступен макрос #SITE_DIR#)
+                        "CATEGORY_0_TITLE" => "",    // Название категории
+                        "CATEGORY_0" => array(    // Ограничение области поиска
+                            0 => "all",
+                        )
+                    ),
+                        false
+                    ); ?>
                     <a href="#">
                         <svg width="22" height="22" viewBox="0 0 22 22" fill="none"
                              xmlns="http://www.w3.org/2000/svg">
