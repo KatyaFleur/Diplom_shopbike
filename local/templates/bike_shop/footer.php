@@ -19,19 +19,18 @@
                     <li><a href="#">соглашение о конфиденциальности</a></li>
                 </ul>
             </nav>
-            <div class="footer__form">
-                <h2>подписаться на новости магазина go&ride</h2>
-                <form action="#">
-                    <div class="footer__form-wrp">
-                        <label>
-                            <input type="email" placeholder="Enter your Email adress" required>
-                            <span class="visually-hidden">email</span>
-                        </label>
-                        <button>подписаться</button>
-                    </div>
-                    <span>Продолжая, вы соглашаетесь с нашей политикой конфиденциальности.</span>
-                </form>
-            </div>
+            <? $APPLICATION->IncludeComponent(
+                "bitrix:main.include",
+                "",
+                array(
+                    "AREA_FILE_SHOW" => "file",
+                    "PATH" => SITE_DIR."include/sender.php",
+                    "AREA_FILE_RECURSIVE" => "N",
+                    "EDIT_MODE" => "html",
+                ),
+                false,
+                array('HIDE_ICONS' => 'Y')
+            );?>
         </div>
         <div class="footer__social-wrp">
             <? // Вставка включаемой области - http://dev.1c-bitrix.ru/user_help/settings/settings/components_2/include_areas/main_include.php

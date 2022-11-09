@@ -1,3 +1,4 @@
+<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <ul class="footer__social-list">
     <li><a href="#">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
