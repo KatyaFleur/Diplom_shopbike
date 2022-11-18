@@ -75,6 +75,68 @@ $arTemplateParameters = array(
 	)
 );
 
+/*
+ * Получаем массив всех типов инфоблоков — для возможности выбора
+ */
+$arIBlockType = CIBlockParameters::GetIBlockTypes();
+
+/*
+ * Получаем массив инфоблоков — для возможности выбора; фильтруем их по
+ * выбранному типу и по активности
+ */
+$arInfoBlocks = array();
+$arFilter = array('ACTIVE' => 'Y');
+// если уже выбран тип инфоблока, выбираем инфоблоки только этого типа
+if (!empty($arCurrentValues['IBLOCK_TYPE'])) {
+    $arFilter['TYPE'] = $arCurrentValues['IBLOCK_TYPE'];
+}
+$rsIBlock = CIBlock::GetList(
+    array('SORT' => 'ASC'),
+    $arFilter
+);
+while($iblock = $rsIBlock->Fetch()) {
+    $arInfoBlocks[$iblock['ID']] = '['.$iblock['ID'].'] '.$iblock['NAME'];
+}
+
+/*
+ * Получаем массив разделов инфоблока, из которых надо получать
+ * популярные элементы — для возможности выбора
+ */
+$arInfoBlockSections = array(
+    '-' => '[=Выберите=]',
+);
+$arFilter = array(
+    'SECTION_ID' => false, // только корневые разделы
+    'ACTIVE' => 'Y' // только активные разделы
+);
+// если уже выбран тип инфоблока, выбираем разделы, принадлежащие инфоблокам выбранного типа
+if (!empty($arCurrentValues['IBLOCK_TYPE'])) {
+    $arFilter['IBLOCK_TYPE'] = $arCurrentValues['IBLOCK_TYPE'];
+}
+// если уже выбран инфоблок, выбираем разделы только этого инфоблока
+if (!empty($arCurrentValues['IBLOCK_ID'])) {
+    $arFilter['IBLOCK_ID'] = $arCurrentValues['IBLOCK_ID'];
+}
+$result = CIBlockSection::GetList(
+    array('SORT' => 'ASC'),
+    $arFilter
+);
+while ($section = $result->Fetch()) {
+    $arInfoBlockSections[$section['ID']] = '['.$section['ID'].'] '.$section['NAME'];
+}
+
+
+$arTemplateParameters = array(
+    "EXCLUDE_SECTION" => array(
+        "PARENT" => "SECTIONS_SETTINGS",
+        "NAME" => "Какой раздел исключить?",
+        "TYPE" => "LIST",
+        "VALUES" => $arInfoBlockSections,
+        "MULTIPLE" => "N",
+        "REFRESH" => "Y"
+    )
+);
+
 if (isset($arCurrentValues['SECTIONS_VIEW_MODE']) && 'TILE' == $arCurrentValues['SECTIONS_VIEW_MODE'])
 {
 	$arTemplateParameters['SECTIONS_HIDE_SECTION_NAME'] = array(

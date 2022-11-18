@@ -21,6 +21,7 @@ $this->setFrameMode(true);
 $sectionListParams = array(
 	"IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
 	"IBLOCK_ID" => $arParams["IBLOCK_ID"],
+    "EXCLUDE_SECTION" => $arParams["EXCLUDE_SECTION"],
 	"CACHE_TYPE" => $arParams["CACHE_TYPE"],
 	"CACHE_TIME" => $arParams["CACHE_TIME"],
 	"CACHE_GROUPS" => $arParams["CACHE_GROUPS"],

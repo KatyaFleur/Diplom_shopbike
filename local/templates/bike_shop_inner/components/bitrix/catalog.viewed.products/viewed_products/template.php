@@ -184,8 +184,7 @@ if (!empty($arResult['ITEMS'])) {
                        <button><a href="<? echo $arItem['DETAIL_PAGE_URL']; ?>" rel="nofollow">купить</a>
                         </button>
                     </div>
-
-
+                    
                     <?
                 }
                 unset($elementDeleteParams, $elementDelete, $elementEdit);

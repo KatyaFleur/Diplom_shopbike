@@ -262,14 +262,14 @@ if (0 < $arResult["SECTIONS_COUNT"]) {
 
 
                 <section class="products">
+                    <?if (($arSection['ID']) !== ($arParams['EXCLUDE_SECTION'])) { ?>
                     <div class="container" id="<? echo $this->GetEditAreaId($arSection['ID']); ?>">
                         <h2><a href="<? echo $arSection['SECTION_PAGE_URL']; ?>"><? echo $arSection['NAME']; ?></a></h2>
-
+                        <?
+                        }
+                        ?>
                         <div class="slider slick-good-slider">
-
-
-                            <? if (CModule::IncludeModule("iblock")):
-
+                            <?if (CModule::IncludeModule("iblock")):
                                 $iblock_id = $arParams["IBLOCK_ID"];
                                 $sec = $arSection['ID'];
                                 # show url my elements
@@ -284,6 +284,7 @@ if (0 < $arResult["SECTIONS_COUNT"]) {
                                 while ($ar_fields = $my_elements->GetNext()) {
                                     $img_path = CFile::GetPath($ar_fields["PREVIEW_PICTURE"]);
                                     ?>
+                                    <?if ($arSection['ID'] !== ($arParams['EXCLUDE_SECTION'])) { ?>
                                     <div class="slider__item">
                                         <div class="slider__item-wrp">
                                             <img src="<? echo $img_path ?>" alt="<? echo $ar_fields['NAME']; ?>">
@@ -296,6 +297,10 @@ if (0 < $arResult["SECTIONS_COUNT"]) {
                                             </div>
                                         </div>
                                     </div>
+                                        <?
+                                    }
+                                    ?>
+
 
                                     <?
                                 }
@@ -304,7 +309,6 @@ if (0 < $arResult["SECTIONS_COUNT"]) {
                         </div>
                     </div>
                 </section>
-
                 <?
             }
             unset($arSection);
@@ -315,6 +319,8 @@ if (0 < $arResult["SECTIONS_COUNT"]) {
     <?
 }
 ?>
+
+
 
 
 

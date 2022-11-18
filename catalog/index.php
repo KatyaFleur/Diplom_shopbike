@@ -61,15 +61,22 @@ $APPLICATION->SetTitle("catalog");
 		"DETAIL_IMAGE_RESOLUTION" => "16by9",
 		"DETAIL_MAIN_BLOCK_OFFERS_PROPERTY_CODE" => array(
 			0 => "SIZE",
+			1 => "COLOR",
 		),
 		"DETAIL_MAIN_BLOCK_PROPERTY_CODE" => array(
+			0 => "MORE_PHOTO",
+			1 => "WEIGHT",
+			2 => "RUDDER",
+			3 => "FORK",
+			4 => "SUSPENSION",
+			5 => "STYLE",
+			6 => "ARTICLE",
 		),
 		"DETAIL_META_DESCRIPTION" => "-",
 		"DETAIL_META_KEYWORDS" => "-",
 		"DETAIL_OFFERS_FIELD_CODE" => array(
 			0 => "NAME",
-			1 => "COLOR",
-			2 => "",
+			1 => "",
 		),
 		"DETAIL_OFFERS_PROPERTY_CODE" => array(
 			0 => "ARTNUMBER",
@@ -86,7 +93,7 @@ $APPLICATION->SetTitle("catalog");
 			1 => "MANUFACTURER",
 			2 => "MATERIAL",
 		),
-		"DETAIL_SET_CANONICAL_URL" => "N",
+		"DETAIL_SET_CANONICAL_URL" => "Y",
 		"DETAIL_SET_VIEWED_IN_COMPONENT" => "N",
 		"DETAIL_SHOW_BASIS_PRICE" => "Y",
 		"DETAIL_SHOW_MAX_QUANTITY" => "N",
@@ -95,7 +102,7 @@ $APPLICATION->SetTitle("catalog");
 		"DETAIL_SHOW_VIEWED" => "Y",
 		"DETAIL_STRICT_SECTION_CHECK" => "N",
 		"DETAIL_USE_COMMENTS" => "Y",
-		"DETAIL_USE_VOTE_RATING" => "Y",
+		"DETAIL_USE_VOTE_RATING" => "N",
 		"DETAIL_VK_USE" => "N",
 		"DETAIL_VOTE_DISPLAY_AS_RATING" => "rating",
 		"DISABLE_INIT_JS_IN_COMPONENT" => "N",
@@ -289,6 +296,9 @@ $APPLICATION->SetTitle("catalog");
 		"USE_SALE_BESTSELLERS" => "Y",
 		"USE_STORE" => "Y",
 		"COMPONENT_TEMPLATE" => "bike_catalog",
+		"LIST_PROPERTY_CODE_MOBILE" => array(
+		),
+		"EXCLUDE_SECTION" => "21",
 		"SEF_URL_TEMPLATES" => array(
 			"sections" => "",
 			"section" => "#SECTION_CODE#/",
