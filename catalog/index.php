@@ -173,7 +173,7 @@ $APPLICATION->SetTitle("catalog");
 			5 => "",
 		),
 		"LIST_PRODUCT_BLOCKS_ORDER" => "price,props,sku,quantityLimit,quantity,buttons",
-		"LIST_PRODUCT_ROW_VARIANTS" => "[{'VARIANT':'2','BIG_DATA':false},{'VARIANT':'2','BIG_DATA':false},{'VARIANT':'2','BIG_DATA':false},{'VARIANT':'2','BIG_DATA':false},{'VARIANT':'2','BIG_DATA':false}]",
+		"LIST_PRODUCT_ROW_VARIANTS" => "[{'VARIANT':'3','BIG_DATA':false},{'VARIANT':'3','BIG_DATA':false},{'VARIANT':'3','BIG_DATA':false},{'VARIANT':'3','BIG_DATA':false}]",
 		"LIST_PROPERTY_CODE" => array(
 			0 => "NEWPRODUCT",
 			1 => "SALELEADER",
@@ -241,7 +241,7 @@ $APPLICATION->SetTitle("catalog");
 		"SECTIONS_VIEW_MODE" => "TEXT",
 		"SECTION_ADD_TO_BASKET_ACTION" => "ADD",
 		"SECTION_BACKGROUND_IMAGE" => "-",
-		"SECTION_COUNT_ELEMENTS" => "N",
+		"SECTION_COUNT_ELEMENTS" => "Y",
 		"SECTION_ID_VARIABLE" => "SECTION_ID",
 		"SECTION_TOP_DEPTH" => "2",
 		"SEF_FOLDER" => "/catalog/",

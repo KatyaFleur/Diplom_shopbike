@@ -137,7 +137,7 @@ if (0 < $arResult["SECTIONS_COUNT"]) {
                     // Элементы раздела
                     $APPLICATION->IncludeComponent(
                         "bitrix:catalog.section",
-                        "bootstrap_v4",
+                        "sale_block",
                         array(
                             "IBLOCK_TYPE" => "catalog",
                             "IBLOCK_ID" => "4",
@@ -155,7 +155,7 @@ if (0 < $arResult["SECTIONS_COUNT"]) {
                             "INCLUDE_SUBSECTIONS" => "Y",
                             "SHOW_ALL_WO_SECTION" => "N",
                             "HIDE_NOT_AVAILABLE" => "N",
-                            "PAGE_ELEMENT_COUNT" => "4",
+                            "PAGE_ELEMENT_COUNT" => "6",
                             "LINE_ELEMENT_COUNT" => "3",
                             "PROPERTY_CODE" => "",
                             "OFFERS_LIMIT" => "5",
@@ -171,15 +171,15 @@ if (0 < $arResult["SECTIONS_COUNT"]) {
                             "CACHE_TIME" => "36000000",
                             "CACHE_NOTES" => "",
                             "CACHE_GROUPS" => "Y",
-                            "SET_TITLE" => "Y",
-                            "SET_BROWSER_TITLE" => "Y",
+                            "SET_TITLE" => "N",
+                            "SET_BROWSER_TITLE" => "N",
                             "BROWSER_TITLE" => "-",
                             "SET_META_KEYWORDS" => "Y",
                             "META_KEYWORDS" => "-",
                             "SET_META_DESCRIPTION" => "Y",
                             "META_DESCRIPTION" => "-",
                             "ADD_SECTIONS_CHAIN" => "N",
-                            "SET_STATUS_404" => "N",
+                            "SET_STATUS_404" => "Y",
                             "CACHE_FILTER" => "N",
                             "ACTION_VARIABLE" => "action",
                             "PRODUCT_ID_VARIABLE" => "id",
@@ -188,9 +188,9 @@ if (0 < $arResult["SECTIONS_COUNT"]) {
                             ),
                             "USE_PRICE_COUNT" => "N",
                             "SHOW_PRICE_COUNT" => "1",
-                            "PRICE_VAT_INCLUDE" => "Y",
+                            "PRICE_VAT_INCLUDE" => "N",
                             "CONVERT_CURRENCY" => "N",
-                            "BASKET_URL" => "/personal/basket.php",
+                            "BASKET_URL" => "/personal/cart/",
                             "USE_PRODUCT_QUANTITY" => "N",
                             "PRODUCT_QUANTITY_VARIABLE" => "quantity",
                             "ADD_PROPERTIES_TO_BASKET" => "Y",
@@ -200,13 +200,13 @@ if (0 < $arResult["SECTIONS_COUNT"]) {
                             "DISPLAY_COMPARE" => "N",
                             "PAGER_TEMPLATE" => ".default",
                             "DISPLAY_TOP_PAGER" => "N",
-                            "DISPLAY_BOTTOM_PAGER" => "Y",
+                            "DISPLAY_BOTTOM_PAGER" => "N",
                             "PAGER_TITLE" => "Товары",
                             "PAGER_SHOW_ALWAYS" => "N",
                             "PAGER_DESC_NUMBERING" => "N",
                             "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
                             "PAGER_SHOW_ALL" => "N",
-                            "COMPONENT_TEMPLATE" => "bootstrap_v4",
+                            "COMPONENT_TEMPLATE" => "sale_block",
                             "CUSTOM_FILTER" => "{\"CLASS_ID\":\"CondGroup\",\"DATA\":{\"All\":\"AND\",\"True\":\"True\"},\"CHILDREN\":[]}",
                             "HIDE_NOT_AVAILABLE_OFFERS" => "N",
                             "OFFERS_SORT_FIELD" => "sort",
@@ -218,11 +218,11 @@ if (0 < $arResult["SECTIONS_COUNT"]) {
                                 1 => "",
                             ),
                             "BACKGROUND_IMAGE" => "-",
-                            "TEMPLATE_THEME" => "blue",
-                            "PRODUCT_ROW_VARIANTS" => "[{'VARIANT':'3','BIG_DATA':false}]",
+                            "TEMPLATE_THEME" => "",
+                            "PRODUCT_ROW_VARIANTS" => "[{'VARIANT':'6','BIG_DATA':false}]",
                             "ENLARGE_PRODUCT" => "STRICT",
                             "PRODUCT_BLOCKS_ORDER" => "price,props,sku,quantityLimit,quantity,buttons",
-                            "SHOW_SLIDER" => "Y",
+                            "SHOW_SLIDER" => "N",
                             "PRODUCT_DISPLAY_MODE" => "N",
                             "ADD_PICT_PROP" => "MORE_PHOTO",
                             "LABEL_PROP" => array(),
@@ -248,28 +248,30 @@ if (0 < $arResult["SECTIONS_COUNT"]) {
                             "LAZY_LOAD" => "N",
                             "MESS_BTN_LAZY_LOAD" => "Показать ещё",
                             "LOAD_ON_SCROLL" => "N",
-                            "SHOW_404" => "N",
+                            "SHOW_404" => "Y",
                             "MESSAGE_404" => "",
-                            "COMPATIBLE_MODE" => "Y",
+                            "COMPATIBLE_MODE" => "N",
                             "DISABLE_INIT_JS_IN_COMPONENT" => "N",
                             "SLIDER_INTERVAL" => "3000",
-                            "SLIDER_PROGRESS" => "N"
+                            "SLIDER_PROGRESS" => "N",
+                            "PROPERTY_CODE_MOBILE" => array(
+                                0 => "ARTICLE",
+                            ),
+                            "FILE_404" => ""
                         ),
                         false
                     );
                 }
                 ?>
-
-
+                <? if (($arSection['ID']) !== ($arParams['EXCLUDE_SECTION'])) { ?>
                 <section class="products">
-                    <?if (($arSection['ID']) !== ($arParams['EXCLUDE_SECTION'])) { ?>
                     <div class="container" id="<? echo $this->GetEditAreaId($arSection['ID']); ?>">
                         <h2><a href="<? echo $arSection['SECTION_PAGE_URL']; ?>"><? echo $arSection['NAME']; ?></a></h2>
                         <?
                         }
                         ?>
                         <div class="slider slick-good-slider">
-                            <?if (CModule::IncludeModule("iblock")):
+                            <? if (CModule::IncludeModule("iblock")):
                                 $iblock_id = $arParams["IBLOCK_ID"];
                                 $sec = $arSection['ID'];
                                 # show url my elements
@@ -284,19 +286,19 @@ if (0 < $arResult["SECTIONS_COUNT"]) {
                                 while ($ar_fields = $my_elements->GetNext()) {
                                     $img_path = CFile::GetPath($ar_fields["PREVIEW_PICTURE"]);
                                     ?>
-                                    <?if ($arSection['ID'] !== ($arParams['EXCLUDE_SECTION'])) { ?>
-                                    <div class="slider__item">
-                                        <div class="slider__item-wrp">
-                                            <img src="<? echo $img_path ?>" alt="<? echo $ar_fields['NAME']; ?>">
-                                            <div class="slider__item-content-wrp">
-                                                <h3>
-                                                    <a href="<? echo urldecode($ar_fields['DETAIL_PAGE_URL']) ?>"><? echo $ar_fields['NAME']; ?></a>
-                                                </h3>
-                                                <p><? echo $ar_fields['CATALOG_PRICE_1'] ?>&nbspр</p>
-                                                <p>Артикул:&nbsp<? echo $ar_fields['PROPERTY_ARTICLE_VALUE'] ?></p>
+                                    <? if ($arSection['ID'] !== ($arParams['EXCLUDE_SECTION'])) { ?>
+                                        <div class="slider__item">
+                                            <div class="slider__item-wrp">
+                                                <img src="<? echo $img_path ?>" alt="<? echo $ar_fields['NAME']; ?>">
+                                                <div class="slider__item-content-wrp">
+                                                    <h3>
+                                                        <a href="<? echo urldecode($ar_fields['DETAIL_PAGE_URL']) ?>"><? echo $ar_fields['NAME']; ?></a>
+                                                    </h3>
+                                                    <p><? echo $ar_fields['CATALOG_PRICE_1'] ?>&nbspр</p>
+                                                    <p>Артикул:&nbsp<? echo $ar_fields['PROPERTY_ARTICLE_VALUE'] ?></p>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
                                         <?
                                     }
                                     ?>
@@ -319,7 +321,6 @@ if (0 < $arResult["SECTIONS_COUNT"]) {
     <?
 }
 ?>
-
 
 
 

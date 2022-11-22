@@ -248,7 +248,7 @@ else
 					);
 				}
 
-				$intSectionID = $APPLICATION->IncludeComponent("bitrix:catalog.section", "bootstrap_v4", array(
+				$intSectionID = $APPLICATION->IncludeComponent("bitrix:catalog.section", "bike_section", array(
 						"IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
 						"IBLOCK_ID" => $arParams["IBLOCK_ID"],
 						"ELEMENT_SORT_FIELD" => $arParams["ELEMENT_SORT_FIELD"],
