@@ -264,6 +264,8 @@ if (0 < $arResult["SECTIONS_COUNT"]) {
                 }
                 ?>
                 <? if (($arSection['ID']) !== ($arParams['EXCLUDE_SECTION'])) { ?>
+
+
                 <section class="products">
                     <div class="container" id="<? echo $this->GetEditAreaId($arSection['ID']); ?>">
                         <h2><a href="<? echo $arSection['SECTION_PAGE_URL']; ?>"><? echo $arSection['NAME']; ?></a></h2>

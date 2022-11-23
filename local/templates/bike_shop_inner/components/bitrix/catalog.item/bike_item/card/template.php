@@ -27,11 +27,11 @@ use \Bitrix\Main\Localization\Loc;
 
 <div class="slider__item">
     <div class="slider__item-wrp">
-        <img src="<?= $item['PREVIEW_PICTURE']['SRC'] ?>" alt="good-1">
+        <img src="<?= $item['PREVIEW_PICTURE']['SRC'] ?>" alt="<?= $productTitle ?>">
         <div class="slider__item-content-wrp">
             <h3><a href="<?= $item['DETAIL_PAGE_URL'] ?>"><?= $productTitle ?></a></h3>
-            <p><?= $price['PRINT_RATIO_BASE_PRICE'] ?></p>
-            <p><? echo $item['DISPLAY_PROPERTIES']['ARTICLE']['DISPLAY_VALUE']; ?></p>
+            <p><?= $price['PRINT_RATIO_BASE_PRICE'] ?>&nbsp;р</p>
+            <p>Артикул:&nbsp;<? echo $item['DISPLAY_PROPERTIES']['ARTICLE']['DISPLAY_VALUE']; ?></p>
         </div>
     </div>
 </div>
