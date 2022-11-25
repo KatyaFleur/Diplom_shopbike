@@ -14,6 +14,6 @@
       ), 
   false 
  ); 
-$aMenuLinks = array_merge($aMenuLinksExt, $aMenuLinks);
+$aMenuLinks = array_merge($aMenuLinksExt);
 
  ?> 

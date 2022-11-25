@@ -12,10 +12,9 @@ $APPLICATION->SetTitle("Поиск");
 		"USE_TITLE_RANK" => "N",
 		"DEFAULT_SORT" => "rank",
 		"arrFILTER" => array(
-			0 => "main",
+			0 => "iblock_catalog",
 		),
-		"arrFILTER_main" => array(
-		),
+		"arrFILTER_main" => "",
 		"arrFILTER_iblock_services" => array(
 			0 => "all",
 		),
@@ -40,7 +39,7 @@ $APPLICATION->SetTitle("Поиск");
 		"PAGER_TITLE" => "Результаты поиска",
 		"PAGER_SHOW_ALWAYS" => "N",
 		"PAGER_TEMPLATE" => "arrows",
-		"USE_SUGGEST" => "N",
+		"USE_SUGGEST" => "Y",
 		"SHOW_ITEM_TAGS" => "N",
 		"SHOW_ITEM_DATE_CHANGE" => "N",
 		"SHOW_ORDER_BY" => "N",

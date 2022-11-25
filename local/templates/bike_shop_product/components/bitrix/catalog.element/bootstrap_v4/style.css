@@ -1,0 +1,35 @@
+.product-item-detail-slider-image {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	text-align: center;
+	opacity: 0;
+	transition: opacity 250ms linear;
+	z-index: -100000000000000000 !important;
+	display: none;
+}
+
+li.product-detail-scu-item-text-container:last-of-type {
+	display: none;
+}
+
+li.product-detail-scu-item-color-container:last-of-type {
+	display: none;
+}
+
+.selected {
+	color: #000;
+}
+.product-card__form-radio-wrp label {
+	font-size: 12px;
+}
+
+button a {
+	color: #801019;
+}
+
+button a:hover {
+	color: #fff;
+}

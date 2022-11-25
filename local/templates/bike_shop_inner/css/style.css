@@ -432,8 +432,8 @@ a {
 
 .header__catalog-categories {
   position: absolute;
-  bottom: -588px;
-  z-index: 3;
+  bottom: -490px;
+  z-index: 10;
   display: none;
 }
 
@@ -448,7 +448,7 @@ a {
 
 .header__sub-catalog-categories {
   position: absolute;
-  bottom: 196px;
+  bottom: 97px;
   display: none;
   left: 390px;
   z-index: 1;
@@ -1077,7 +1077,7 @@ a {
 }
 @media (max-width: 1030px) {
   .information__text-wrp p,
-.information__text-wrp ul {
+  .information__text-wrp ul {
     font-size: 14px;
     line-height: 21px;
   }
