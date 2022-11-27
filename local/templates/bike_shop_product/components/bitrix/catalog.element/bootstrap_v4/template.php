@@ -334,8 +334,8 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-' . $arParams['TEMPLATE_
                                             data-onevalue="<?= $value['ID'] ?>">
 
                                             <input class="visually-hidden" type="radio" id="<?= $value['ID'] ?>"
-                                                   name="size" value="<?= $value['NAME'] ?>">
-                                            <label for="s-size">
+                                                   name="<?= htmlspecialcharsEx($skuProperty['NAME']) ?>" value="<?= $value['NAME'] ?>">
+                                            <label for="<?= $value['NAME'] ?>" >
                                                 <?= $value['NAME'] ?>
                                             </label>
 
@@ -349,8 +349,8 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-' . $arParams['TEMPLATE_
 
 
                                             <input class="visually-hidden" type="radio" id="<?= $value['ID'] ?>"
-                                                   name="size" value="<?= $value['NAME'] ?>">
-                                            <label for="s-size">
+                                                   name="<?= htmlspecialcharsEx($skuProperty['NAME']) ?>" value="<?= $value['NAME'] ?>">
+                                            <label for="<?= $value['NAME'] ?>">
                                                 <?= $value['NAME'] ?>
                                             </label>
 
@@ -1106,7 +1106,13 @@ $jsParams['IS_FACEBOOK_CONVERSION_CUSTOMIZE_PRODUCT_EVENT_ENABLED'] =
 
         var <?=$obName?> = new JCCatalogElement(<?=CUtil::PhpToJSObject($jsParams, false, true)?>);
     </script>
+<script>
 
+        document.getElementById('visually-hidden').onclick = function() {
+        document.getElementById('visually-hidden').classList.add('selected');
+    }
+
+</script>
 <?php
 $arrayData = array(
     "@context" => "https://schema.org/",

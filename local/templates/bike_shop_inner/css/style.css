@@ -432,8 +432,8 @@ a {
 
 .header__catalog-categories {
   position: absolute;
-  bottom: -490px;
-  z-index: 10;
+  bottom: -588px;
+  z-index: 3;
   display: none;
 }
 
@@ -448,7 +448,7 @@ a {
 
 .header__sub-catalog-categories {
   position: absolute;
-  bottom: 97px;
+  bottom: 196px;
   display: none;
   left: 390px;
   z-index: 1;
