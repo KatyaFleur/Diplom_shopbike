@@ -9,21 +9,21 @@ $aMenuLinks = Array(
 	),
 	Array(
 		"Распродажа", 
-		"", 
+		"/catalog/rasprodazha/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
 		"Отзывы", 
-		"", 
+		"/reviews/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
 		"Контакты", 
-		"", 
+		"/contacts/", 
 		Array(), 
 		Array(), 
 		"" 
