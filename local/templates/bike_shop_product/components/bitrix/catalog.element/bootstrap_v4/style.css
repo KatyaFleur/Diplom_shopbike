@@ -26,10 +26,36 @@ li.product-detail-scu-item-color-container:last-of-type {
 	font-size: 12px;
 }
 
-button a {
-	color: #801019;
-}
 
-button a:hover {
-	color: #fff;
+.product-card__form .button {
+	font-family: inherit;
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 15px;
+	text-transform: uppercase;
+	min-height: 51px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	width: 100%;
+	background: #FFFEFE;
+	color: #801019;
+	border-top-width: 2px;
+	border-right-width: 2px;
+	border-bottom-width: 2px;
+	border-left-width: 2px;
+	border-top-style: outset;
+	border-right-style: outset;
+	border-bottom-style: outset;
+	border-left-style: outset;
+	border-top-color: buttonface;
+	border-right-color: buttonface;
+	border-bottom-color: buttonface;
+	border-left-color: buttonface;
+	box-sizing: border-box;
+}
+.product-card__form .button:hover, .product-card__form .button:focus {
+	background: #801019;
+	color: #FFFEFE;
 }

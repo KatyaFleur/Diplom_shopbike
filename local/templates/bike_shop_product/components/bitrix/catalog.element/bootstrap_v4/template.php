@@ -400,24 +400,19 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-' . $arParams['TEMPLATE_
                         <?php
                         if ($showAddBtn) {
                             ?>
-                            <button type="submit">
-                                <a id="<?= $itemIds['ADD_BASKET_LINK'] ?>"
+                                <a class="button" id="<?= $itemIds['ADD_BASKET_LINK'] ?>"
                                    href="javascript:void(0);">
                                     <?= $arParams['MESS_BTN_ADD_TO_BASKET'] ?>
                                 </a>
-                            </button>
                             <?php
                         }
 
                         if ($showBuyBtn) {
                             ?>
-                            <button type="submit">
-                                <a
-                                        id="<?= $itemIds['BUY_LINK'] ?>"
+                                <a class="button" id="<?= $itemIds['BUY_LINK'] ?>"
                                         href="javascript:void(0);">
                                     <?= $arParams['MESS_BTN_BUY'] ?>
                                 </a>
-                            </button>
                             <?php
                         }
                         ?>

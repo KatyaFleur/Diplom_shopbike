@@ -1,6 +1,6 @@
-button a {
+div.review__wrp button a {
 	color: #fff;
 }
-a {
+.review__list a {
 	color: #fff;
 }
