@@ -90,7 +90,9 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-' . $arParams['TEMPLATE_
 
 ?>
 
-<section <?if ($APPLICATION->GetCurDir()!='/catalog/'):?>class="favourite favourite--section"<?else:?>class="favourite"<?endif;?>>
+<? if (count($arResult['ITEMS']) > 0) { ?>
+<section <? if ($APPLICATION->GetCurDir() != '/catalog/'): ?>class="favourite favourite--section"
+         <? else: ?>class="favourite"<? endif; ?>>
 
     <!-- items-container -->
     <?
@@ -155,9 +157,16 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-' . $arParams['TEMPLATE_
 
             }
             ?>
+
             <!-- items-container -->
         </div>
     </div>
+    <div class="favourite__text">
+        <div class="favourite__text-wrp">
+            <h2><?= GetMessageJS('BLOCK_SALE_NAME') ?></h2>
+        </div>
+    </div>
+    <? } ?>
     <?
 
 
@@ -204,9 +213,6 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-' . $arParams['TEMPLATE_
             container: '<?=$containerName?>'
         });
     </script>
-    <div class="favourite__text">
-        <div class="favourite__text-wrp">
-            <h2><?= GetMessageJS('BLOCK_SALE_NAME') ?></h2>
-        </div>
-    </div>
+
+
 </section>

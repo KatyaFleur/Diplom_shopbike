@@ -64,13 +64,18 @@ if (0 < $arResult["SECTIONS_COUNT"]) {
 
     switch ($arParams['VIEW_MODE']) {
         case 'TEXT':
-            $i = 0;
+            $countSectDisplay = 0;
+            $countSect = count($arResult['SECTIONS']);
             foreach ($arResult['SECTIONS'] as &$arSection) {
                 $this->AddEditAction($arSection['ID'], $arSection['EDIT_LINK'], $strSectionEdit);
                 $this->AddDeleteAction($arSection['ID'], $arSection['DELETE_LINK'], $strSectionDelete, $arSectionDeleteParams);
-                $i++;
+                if ($arSection['ELEMENT_CNT'] > 0) {
+                    $countSectDisplay++;
+                }
+
+                $lastSect = $countSect - 1;
                 ?>
-                <? if ($i == 3) {
+                <? if ($countSectDisplay == 3) {
                     $APPLICATION->IncludeComponent(
                         "bitrix:catalog.viewed.products",
                         "viewed_products",
@@ -133,7 +138,8 @@ if (0 < $arResult["SECTIONS_COUNT"]) {
                         ),
                         false
                     );
-                } else if ($i == 5) {
+                } else if ($countSectDisplay === $lastSect) {
+                    unset($i);
                     // Элементы раздела
                     $APPLICATION->IncludeComponent(
                         "bitrix:catalog.section",
@@ -263,55 +269,55 @@ if (0 < $arResult["SECTIONS_COUNT"]) {
                     );
                 }
                 ?>
-                <? if (($arSection['ID']) !== ($arParams['EXCLUDE_SECTION'])) { ?>
+                <? if (($arSection['ID']) !== ($arParams['EXCLUDE_SECTION']) && $arSection['ELEMENT_CNT'] > 0) { ?>
 
 
-                <section class="products">
+                    <section class="products">
                     <div class="container" id="<? echo $this->GetEditAreaId($arSection['ID']); ?>">
-                        <h2><a href="<? echo $arSection['SECTION_PAGE_URL']; ?>"><? echo $arSection['NAME']; ?></a></h2>
-                        <?
-                        }
-                        ?>
-                        <div class="slider slick-good-slider">
-                            <? if (CModule::IncludeModule("iblock")):
-                                $iblock_id = $arParams["IBLOCK_ID"];
-                                $sec = $arSection['ID'];
-                                # show url my elements
-                                $my_elements = CIBlockElement::GetList(
-                                    array("ID" => "ASC"),
-                                    array("IBLOCK_ID" => $iblock_id, "SECTION_ID" => $sec, "INCLUDE_SUBSECTIONS" => "Y"),
-                                    false,
-                                    false,
-                                    array('ID', 'NAME', 'DETAIL_PAGE_URL', 'PREVIEW_PICTURE', 'CATALOG_PRICE_1', 'PROPERTY_ARTICLE')
-                                );
+                    <h2><a href="<? echo $arSection['SECTION_PAGE_URL']; ?>"><? echo $arSection['NAME']; ?></a></h2>
+                    <?
+                }
+                ?>
+                <div class="slider slick-good-slider">
+                    <? if (CModule::IncludeModule("iblock")):
+                        $iblock_id = $arParams["IBLOCK_ID"];
+                        $sec = $arSection['ID'];
+                        # show url my elements
+                        $my_elements = CIBlockElement::GetList(
+                            array("ID" => "ASC"),
+                            array("IBLOCK_ID" => $iblock_id, "SECTION_ID" => $sec, "INCLUDE_SUBSECTIONS" => "Y"),
+                            false,
+                            false,
+                            array('ID', 'NAME', 'DETAIL_PAGE_URL', 'PREVIEW_PICTURE', 'CATALOG_PRICE_1', 'PROPERTY_ARTICLE')
+                        );
 
-                                while ($ar_fields = $my_elements->GetNext()) {
-                                    $img_path = CFile::GetPath($ar_fields["PREVIEW_PICTURE"]);
-                                    ?>
-                                    <? if ($arSection['ID'] !== ($arParams['EXCLUDE_SECTION'])) { ?>
-                                        <div class="slider__item">
-                                            <div class="slider__item-wrp">
-                                                <img src="<? echo $img_path ?>" alt="<? echo $ar_fields['NAME']; ?>">
-                                                <div class="slider__item-content-wrp">
-                                                    <h3>
-                                                        <a href="<? echo urldecode($ar_fields['DETAIL_PAGE_URL']) ?>"><? echo $ar_fields['NAME']; ?></a>
-                                                    </h3>
-                                                    <p><? echo $ar_fields['CATALOG_PRICE_1'] ?>&nbspр</p>
-                                                    <p>Артикул:&nbsp<? echo $ar_fields['PROPERTY_ARTICLE_VALUE'] ?></p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <?
-                                    }
-                                    ?>
-
-
-                                    <?
-                                }
-                            endif;
+                        while ($ar_fields = $my_elements->GetNext()) {
+                            $img_path = CFile::GetPath($ar_fields["PREVIEW_PICTURE"]);
                             ?>
-                        </div>
-                    </div>
+                            <? if (($arSection['ID']) !== ($arParams['EXCLUDE_SECTION']) && $arSection['ELEMENT_CNT'] > 0) { ?>
+                                <div class="slider__item">
+                                    <div class="slider__item-wrp">
+                                        <img src="<? echo $img_path ?>" alt="<? echo $ar_fields['NAME']; ?>">
+                                        <div class="slider__item-content-wrp">
+                                            <h3>
+                                                <a href="<? echo urldecode($ar_fields['DETAIL_PAGE_URL']) ?>"><? echo $ar_fields['NAME']; ?></a>
+                                            </h3>
+                                            <p><? echo $ar_fields['CATALOG_PRICE_1'] ?>&nbspр</p>
+                                            <p>Артикул:&nbsp<? echo $ar_fields['PROPERTY_ARTICLE_VALUE'] ?></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <?
+                            }
+                            ?>
+
+
+                            <?
+                        }
+                    endif;
+                    ?>
+                </div>
+                </div>
                 </section>
                 <?
             }
@@ -323,7 +329,6 @@ if (0 < $arResult["SECTIONS_COUNT"]) {
     <?
 }
 ?>
-
 
 
 

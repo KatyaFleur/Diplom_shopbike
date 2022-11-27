@@ -3,11 +3,22 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 /* remove empty sections ----------------------------------------*/
 
 //foreach ($arResult['SECTIONS']  as $key => $value){
+//
+//
 //    if(0 == $arResult['SECTIONS'][$key]['ELEMENT_CNT'])
 //    {
+//
 //        unset($arResult['SECTIONS'][$key]);
+//
 //    }
 //}
+
+
+
+
+
+
+
 
 $arViewModeList = array('LIST', 'LINE', 'TEXT', 'TILE');
 
