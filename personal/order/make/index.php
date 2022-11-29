@@ -4,7 +4,7 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Заказы");
 ?><?$APPLICATION->IncludeComponent(
 	"bitrix:sale.order.ajax", 
-	"bootstrap_v4", 
+	".default", 
 	array(
 		"PAY_FROM_ACCOUNT" => "Y",
 		"COUNT_DELIVERY_TAX" => "N",
@@ -30,7 +30,7 @@ $APPLICATION->SetTitle("Заказы");
 		"USER_CONSENT_ID" => "1",
 		"USER_CONSENT_IS_CHECKED" => "Y",
 		"USER_CONSENT_IS_LOADED" => "Y",
-		"COMPONENT_TEMPLATE" => "bootstrap_v4",
+		"COMPONENT_TEMPLATE" => ".default",
 		"ALLOW_APPEND_ORDER" => "Y",
 		"SHOW_NOT_CALCULATED_DELIVERIES" => "L",
 		"SPOT_LOCATION_BY_GEOIP" => "Y",
@@ -75,6 +75,8 @@ $APPLICATION->SetTitle("Заказы");
 		"PRODUCT_COLUMNS_VISIBLE" => array(
 			0 => "PREVIEW_PICTURE",
 			1 => "PROPS",
+			2 => "DISCOUNT_PRICE_PERCENT_FORMATED",
+			3 => "WEIGHT_FORMATED",
 		),
 		"ADDITIONAL_PICT_PROP_4" => "-",
 		"ADDITIONAL_PICT_PROP_5" => "-",

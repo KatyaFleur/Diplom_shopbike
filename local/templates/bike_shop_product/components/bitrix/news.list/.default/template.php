@@ -14,7 +14,7 @@ $this->setFrameMode(true);
 ?>
 <section class="review">
     <div class="container">
-        <h2>Customer reviews</h2>
+        <h2>Отзывы</h2>
         <div class="review__wrp">
             <ul class="review__list">
                 <? if ($arParams["DISPLAY_TOP_PAGER"]): ?>
