@@ -447,11 +447,11 @@ if (($arParams['HIDE_SECTION_DESCRIPTION'] !== 'Y') && !empty($arResult['DESCRIP
                             case 6:
                                 foreach ($rowItems as $item) {
                                     ?>
-                                    <div class="col-6 col-sm-4 col-md-4 col-lg-2 product-item-small-card">
+
                                         <?
                                         $APPLICATION->IncludeComponent(
                                             'bitrix:catalog.item',
-                                            'bootstrap_v4',
+                                            'bike_section_item',
                                             array(
                                                 'RESULT' => array(
                                                     'ITEM' => $item,
@@ -469,7 +469,7 @@ if (($arParams['HIDE_SECTION_DESCRIPTION'] !== 'Y') && !empty($arResult['DESCRIP
                                             array('HIDE_ICONS' => 'Y')
                                         );
                                         ?>
-                                    </div>
+
                                     <?
                                 }
 
@@ -483,7 +483,7 @@ if (($arParams['HIDE_SECTION_DESCRIPTION'] !== 'Y') && !empty($arResult['DESCRIP
                                     $item = array_shift($rowItems);
                                     $APPLICATION->IncludeComponent(
                                         'bitrix:catalog.item',
-                                        'bootstrap_v4',
+                                        'bike_section_item',
                                         array(
                                             'RESULT' => array(
                                                 'ITEM' => $item,
@@ -512,7 +512,7 @@ if (($arParams['HIDE_SECTION_DESCRIPTION'] !== 'Y') && !empty($arResult['DESCRIP
                                                 <?
                                                 $APPLICATION->IncludeComponent(
                                                     'bitrix:catalog.item',
-                                                    'bootstrap_v4',
+                                                    'bike_section_item',
                                                     array(
                                                         'RESULT' => array(
                                                             'ITEM' => $rowItems[$i],
@@ -551,7 +551,7 @@ if (($arParams['HIDE_SECTION_DESCRIPTION'] !== 'Y') && !empty($arResult['DESCRIP
                                                 <?
                                                 $APPLICATION->IncludeComponent(
                                                     'bitrix:catalog.item',
-                                                    'bootstrap_v4',
+                                                    'bike_section_item',
                                                     array(
                                                         'RESULT' => array(
                                                             'ITEM' => $rowItems[$i],
@@ -607,7 +607,7 @@ if (($arParams['HIDE_SECTION_DESCRIPTION'] !== 'Y') && !empty($arResult['DESCRIP
                                 foreach ($rowItems as $item) {
                                     ?>
                                     <div class="col product-item-line-card">
-                                        <? $APPLICATION->IncludeComponent('bitrix:catalog.item', 'bootstrap_v4', array(
+                                        <? $APPLICATION->IncludeComponent('bitrix:catalog.item', 'bike_section_item', array(
                                             'RESULT' => array(
                                                 'ITEM' => $item,
                                                 'AREA_ID' => $areaIds[$item['ID']],

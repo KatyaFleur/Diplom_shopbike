@@ -468,11 +468,11 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-'.$arParams['TEMPLATE_TH
 								foreach ($rowItems as $item)
 								{
 									?>
-									<div class="col-6 col-sm-4 col-md-4 col-lg-2 product-item-small-card">
+
 										<?
 										$APPLICATION->IncludeComponent(
 											'bitrix:catalog.item',
-											'bootstrap_v4',
+											'bike_section_item',
 											array(
 												'RESULT' => array(
 													'ITEM' => $item,
@@ -490,7 +490,7 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-'.$arParams['TEMPLATE_TH
 											array('HIDE_ICONS' => 'Y')
 										);
 										?>
-									</div>
+
 									<?
 								}
 

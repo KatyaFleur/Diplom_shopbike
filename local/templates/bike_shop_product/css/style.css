@@ -1392,7 +1392,7 @@ a {
 }
 @media (max-width: 1920px) {
   .products-list__wrp {
-    grid-template-columns: repeat(4, 23%);
+    grid-template-columns: repeat(5, 18%);
   }
 }
 @media (max-width: 1400px) {

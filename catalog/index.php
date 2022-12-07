@@ -22,7 +22,7 @@ $APPLICATION->SetTitle("catalog");
 		"BIG_DATA_RCM_TYPE" => "personal",
 		"CACHE_FILTER" => "Y",
 		"CACHE_GROUPS" => "Y",
-		"CACHE_TIME" => "36000000",
+		"CACHE_TIME" => "3600000",
 		"CACHE_TYPE" => "A",
 		"COMMON_ADD_TO_BASKET_ACTION" => "ADD",
 		"COMMON_SHOW_CLOSE_POPUP" => "Y",
@@ -172,7 +172,7 @@ $APPLICATION->SetTitle("catalog");
 			5 => "",
 		),
 		"LIST_PRODUCT_BLOCKS_ORDER" => "price,props,sku,quantityLimit,quantity,buttons",
-		"LIST_PRODUCT_ROW_VARIANTS" => "[{'VARIANT':'3','BIG_DATA':false},{'VARIANT':'3','BIG_DATA':false},{'VARIANT':'3','BIG_DATA':false},{'VARIANT':'3','BIG_DATA':false},{'VARIANT':'3','BIG_DATA':false},{'VARIANT':'3','BIG_DATA':false}]",
+		"LIST_PRODUCT_ROW_VARIANTS" => "[{'VARIANT':'6','BIG_DATA':false},{'VARIANT':'6','BIG_DATA':false},{'VARIANT':'6','BIG_DATA':false}]",
 		"LIST_PROPERTY_CODE" => array(
 			0 => "NEWPRODUCT",
 			1 => "SALELEADER",
@@ -215,7 +215,7 @@ $APPLICATION->SetTitle("catalog");
 		"PAGER_SHOW_ALWAYS" => "N",
 		"PAGER_TEMPLATE" => "round",
 		"PAGER_TITLE" => "Товары",
-		"PAGE_ELEMENT_COUNT" => "24",
+		"PAGE_ELEMENT_COUNT" => "18",
 		"PARTIAL_PRODUCT_PROPERTIES" => "N",
 		"PRICE_CODE" => array(
 			0 => "BASE",

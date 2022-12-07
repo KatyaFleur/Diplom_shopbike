@@ -1,19 +1,21 @@
 <?
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
-/* remove empty sections ----------------------------------------*/
 
+//$i = 0;
+//$a = count($arResult['SECTIONS']);
 //foreach ($arResult['SECTIONS']  as $key => $value){
-//
-//
-//    if(0 == $arResult['SECTIONS'][$key]['ELEMENT_CNT'])
+//    echo '<pre>';
+//    print_r($i);
+//    echo '<pre>';
+//$i++;
+//    if($i == 3)
 //    {
 //
-//        unset($arResult['SECTIONS'][$key]);
+//echo 'просм';
 //
 //    }
 //}
-
-
+$this->__component->SetResultCacheKeys(array("CACHED_TPL"));
 
 
 

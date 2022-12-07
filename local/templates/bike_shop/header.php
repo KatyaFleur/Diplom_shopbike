@@ -49,21 +49,25 @@ Loc::loadLanguageFile(__FILE__);
                     ); ?>
                 </a>
                 <? // Меню - http://dev.1c-bitrix.ru/user_help/settings/settings/components_2/navigation/menu.php
-                $APPLICATION->IncludeComponent("bitrix:menu", "top_menu_main", array(
-                    "ROOT_MENU_TYPE" => "top",    // Тип меню для первого уровня
-                    "MENU_CACHE_TYPE" => "N",    // Тип кеширования
-                    "MENU_CACHE_TIME" => "3600",    // Время кеширования (сек.)
-                    "MENU_CACHE_USE_GROUPS" => "Y",    // Учитывать права доступа
-                    "MENU_CACHE_GET_VARS" => "",    // Значимые переменные запроса
-                    "MAX_LEVEL" => "1",    // Уровень вложенности меню
-                    "CHILD_MENU_TYPE" => "",    // Тип меню для остальных уровней
-                    "USE_EXT" => "N",    // Подключать файлы с именами вида .тип_меню.menu_ext.php
-                    "DELAY" => "N",    // Откладывать выполнение шаблона меню
-                    "ALLOW_MULTI_SELECT" => "N",    // Разрешить несколько активных пунктов одновременно
-                    "COMPONENT_TEMPLATE" => ".default"
-                ),
-                    false
-                ); ?>
+                $APPLICATION->IncludeComponent(
+	"bitrix:menu", 
+	"top_menu_main", 
+	array(
+		"ROOT_MENU_TYPE" => "top",
+		"MENU_CACHE_TYPE" => "A",
+		"MENU_CACHE_TIME" => "3600000",
+		"MENU_CACHE_USE_GROUPS" => "Y",
+		"MENU_CACHE_GET_VARS" => array(
+		),
+		"MAX_LEVEL" => "1",
+		"CHILD_MENU_TYPE" => "",
+		"USE_EXT" => "N",
+		"DELAY" => "N",
+		"ALLOW_MULTI_SELECT" => "N",
+		"COMPONENT_TEMPLATE" => "top_menu_main"
+	),
+	false
+); ?>
                 <div class="header__nav-box header__search">
                     <? // Поиск по заголовкам - http://dev.1c-bitrix.ru/user_help/settings/search/components_2/search_title.php
                     $APPLICATION->IncludeComponent("bitrix:search.title", "header_search", array(

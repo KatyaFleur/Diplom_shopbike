@@ -12,6 +12,8 @@
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
 ?>
+
+<?if(count($arResult["ITEMS"]) > 0) {?>
 <section class="city-bike">
     <div class="container">
         <h2>Городские велосипеды</h2>
@@ -40,3 +42,5 @@ $this->setFrameMode(true);
         </div>
     </div>
 </section>
+<?}
+?>

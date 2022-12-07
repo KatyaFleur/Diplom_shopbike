@@ -32,7 +32,7 @@ $arUrlRewrite=array (
     'PATH' => '/personal/index.php',
     'SORT' => 100,
   ),
-  6 => 
+  8 => 
   array (
     'CONDITION' => '#^/reviews/#',
     'RULE' => '',
@@ -40,7 +40,7 @@ $arUrlRewrite=array (
     'PATH' => '/reviews/index.php',
     'SORT' => 100,
   ),
-  7 => 
+  9 => 
   array (
     'CONDITION' => '#^/catalog/#',
     'RULE' => '',
